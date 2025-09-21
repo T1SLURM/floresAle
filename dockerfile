@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Copiar el archivo HTML al directorio de contenido de Nginx
-COPY index.html /usr/share/nginx/html/
+COPY teQuieroAle.html /usr/share/nginx/html/
 
 # Exponer el puerto 80
 EXPOSE 80
