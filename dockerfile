@@ -1,10 +1,14 @@
-# Usar una imagen base de Nginx
 FROM nginx:alpine
 
-# Copiar el archivo HTML al directorio de contenido de Nginx
-COPY teQuieroAle.html /usr/share/nginx/html/
+# Crear directorio y limpiar contenido por defecto
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
 
-# Exponer el puerto 80
+# Copiar archivo HTML específicamente como index.html
+COPY teQuieroAle.html ./teQuieroAle.html
+
+# Verificar que el archivo existe
+RUN ls -la /usr/share/nginx/html/
+
 EXPOSE 80
-
-# El comando por defecto ya está configurado en la imagen base de Nginx
+CMD ["nginx", "-g", "daemon off;"]
